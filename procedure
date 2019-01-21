@@ -1,0 +1,9 @@
+DELIMITER //
+	CREATE PROCEDURE GetAllData()
+		BEGIN
+			SELECT persons.owner_id 'Owner ID', persons.fname 'Owner first name', persons.lname 'Owner last name', persons.sex 'Owner gender', persons.age 'Owner age', persons.flat_id 'Flat number', house.floor 'Floor', house.rooms 'Number of rooms', house.size 'Flat size'
+			FROM persons
+			LEFT JOIN house
+			ON house.flat_id=persons.flat_id;
+		END //
+	DELIMITER ;
